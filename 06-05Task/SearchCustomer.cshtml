@@ -1,0 +1,56 @@
+﻿@model IEnumerable<ADONet.Models.Customer>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Customers"; 
+}
+<div>
+    <table class="table">
+        <thead>
+            <tr>
+                @using (Html.BeginForm("SearchCustomer", "Home", FormMethod.Post))
+                { }
+            </tr>
+            <tr>
+                <th>
+                    @Html.DisplayName("ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Customer Name")
+                </th>
+                <th>
+                    @Html.DisplayName("Email ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Mobile No")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.CustomerID)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.CustomerName)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.EmailID)
+                    </td>
+                    <td>
+
+                        @Html.TextBoxFor(modelItem => item.MobileNo)
+                    </td>
+                </tr>
+            }
+
+            
+
+        </tbody>
+        
+
+    </table>
+</div>
